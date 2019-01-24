@@ -17,8 +17,7 @@ matrix:
   - if: NOT tag =~ .+
     os: linux
     language: cpp
-    compiler:
-      - gcc
+    compiler: gcc
 before_install:
 - if [[ -z $TRAVIS_TAG ]]; then
     sudo add-apt-repository -y ppa:deadsnakes/ppa;
