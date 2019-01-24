@@ -1,5 +1,24 @@
 sudo: enabled
-language: cpp
+matrix:
+  include:
+  - if: tag =~ .+
+    os: windows
+    language: sh
+    python: 3.6
+    env: x86_64=true
+  - if: tag =~ .+
+    os: windows
+    language: sh
+    python: 3.6
+    env: x86_32=true
+  - if: tag =~ .+
+    os: linux
+    dist: xenial
+    language: python
+    python: '3.6'
+  - if: NOT tag =~ .+
+    os: linux
+    language: cpp
 before_install:
   - sudo add-apt-repository -y ppa:deadsnakes/ppa
   - sudo apt-get update
