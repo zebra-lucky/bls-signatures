@@ -25,18 +25,22 @@ before_install:
     choco install -y python3 --version 3.6.8;
     export PATH="/c/Python36:/c/Python36/Scripts:$PATH";
     python -m pip install --upgrade pip wheel;
+    python -m pip install blspy
   elif [[ -z $TRAVIS_TAG ]] && [[ $TRAVIS_OS_NAME == 'windows' ]] && [[ $pyver == '3.6' ]] && [[ $x86_32 == 'true' ]]; then
     choco install -y python3 --version 3.6.8 --x86;
     export PATH="/c/Python36:/c/Python36/Scripts:$PATH";
     python -m pip install --upgrade pip wheel;
+    python -m pip install blspy
   elif [[ -z $TRAVIS_TAG ]] && [[ $TRAVIS_OS_NAME == 'windows' ]] && [[ $pyver == '3.7' ]] && [[ $x86_64 == 'true' ]]; then
     choco install -y python3 --version 3.7.1;
     export PATH="/c/Python37:/c/Python37/Scripts:$PATH";
     python -m pip install --upgrade pip wheel;
+    python -m pip install blspy
   elif [[ -z $TRAVIS_TAG ]] && [[ $TRAVIS_OS_NAME == 'windows' ]] && [[ $pyver == '3.7' ]] && [[ $x86_32 == 'true' ]]; then
     choco install -y python3 --version 3.7.1 --x86;
     export PATH="/c/Python37:/c/Python37/Scripts:$PATH";
     python -m pip install --upgrade pip wheel;
+    python -m pip install blspy
   else
     echo "Unknown conditions";
     exit 2;
